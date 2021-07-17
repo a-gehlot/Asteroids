@@ -4,13 +4,11 @@
 // MovingObject.prototype.draw(ctx), 
 // MovingObject.prototype.isCollidedWith(otherMovingObject)
 
-class MovingObject {
-    constructor(optionsObject) {
-        this.pos = optionsObject.pos;
-        this.vel = optionsObject.vel;
-        this.radius = optionsObject.radius;
-        this.color = optionsObject.color;
-    }
+function MovingObject (optionsObject) {
+    this.pos = optionsObject.pos;
+    this.vel = optionsObject.vel;
+    this.radius = optionsObject.radius;
+    this.color = optionsObject.color;
 }
 
 MovingObject.prototype.draw = function (ctx) {
