@@ -25,10 +25,10 @@ Game.prototype.randomPosition = function() {
 }
 
 Game.prototype.draw = function(ctx) {
-    const canvas = document.getElementById('game-canvas')
     ctx.clearRect(0, 0, 500, 500);
     this.asteroids.forEach((asteroid) => {
         asteroid.draw(ctx);
+        // ctx.clearRect(0, 0, 500, 500);
     })
 }
 
