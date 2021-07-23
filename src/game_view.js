@@ -13,7 +13,7 @@ function GameView (ctx, optionsObject) {
 GameView.prototype.start = function (ctx) {
     this.game.addAsteroids();
     setInterval(() => {
-        this.game.moveObjects();
+        this.game.step();
         this.game.draw(ctx);
     }, 20)
 }

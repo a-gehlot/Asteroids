@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         vel: 10,
         radius: 5,
         color: '#eb3434',
-        num_asteroids: 1
+        num_asteroids: 4
     }
     const gameView = new GameView(ctx, optionsObject);
     gameView.start(ctx);

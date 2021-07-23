@@ -4,6 +4,8 @@
 // MovingObject.prototype.draw(ctx), 
 // MovingObject.prototype.isCollidedWith(otherMovingObject)
 
+const Util = require("./utils");
+
 
 function MovingObject (optionsObject) {
     this.pos = optionsObject.pos;
@@ -27,7 +29,11 @@ MovingObject.prototype.move = function () {
 }
 
 MovingObject.prototype.isCollidedWith = function (otherObject) {
-    let distCenter = Math.sqrt()
+    if (Util.dist(this.pos, otherObject.pos) <= (this.radius + otherObject.radius)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 
