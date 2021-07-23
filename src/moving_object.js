@@ -26,6 +26,10 @@ MovingObject.prototype.move = function () {
     this.pos = this.game.wrap(this.pos);
 }
 
+MovingObject.prototype.isCollidedWith = function (otherObject) {
+    let distCenter = Math.sqrt()
+}
+
 
 
 module.exports = MovingObject;

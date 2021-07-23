@@ -55,7 +55,7 @@ eval("console.log('Webpack is working!');\n\nconst MovingObject = __webpack_requ
   \******************************/
 /***/ ((module) => {
 
-eval("// Base class for anything that moves.\n// Most important methods are \n// MovingObject.prototype.move, \n// MovingObject.prototype.draw(ctx), \n// MovingObject.prototype.isCollidedWith(otherMovingObject)\n\n\nfunction MovingObject (optionsObject) {\n    this.pos = optionsObject.pos;\n    this.vel = optionsObject.vel;\n    this.radius = optionsObject.radius;\n    this.color = optionsObject.color;\n    this.game = optionsObject.game;\n}\n\nMovingObject.prototype.draw = function (ctx) {\n    ctx.fillStyle = this.color;\n    ctx.beginPath();\n    ctx.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI);\n    ctx.stroke();\n}\n\nMovingObject.prototype.move = function () {\n    this.pos[0] += this.vel[0];\n    this.pos[1] += this.vel[1];\n    this.pos = this.game.wrap(this.pos);\n}\n\n\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
+eval("// Base class for anything that moves.\n// Most important methods are \n// MovingObject.prototype.move, \n// MovingObject.prototype.draw(ctx), \n// MovingObject.prototype.isCollidedWith(otherMovingObject)\n\n\nfunction MovingObject (optionsObject) {\n    this.pos = optionsObject.pos;\n    this.vel = optionsObject.vel;\n    this.radius = optionsObject.radius;\n    this.color = optionsObject.color;\n    this.game = optionsObject.game;\n}\n\nMovingObject.prototype.draw = function (ctx) {\n    ctx.fillStyle = this.color;\n    ctx.beginPath();\n    ctx.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI);\n    ctx.stroke();\n}\n\nMovingObject.prototype.move = function () {\n    this.pos[0] += this.vel[0];\n    this.pos[1] += this.vel[1];\n    this.pos = this.game.wrap(this.pos);\n}\n\nMovingObject.prototype.isCollidedWith = function (otherObject) {\n    let distCenter = Math.sqrt()\n}\n\n\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
 
 /***/ }),
 
@@ -65,7 +65,7 @@ eval("// Base class for anything that moves.\n// Most important methods are \n//
   \**********************/
 /***/ ((module) => {
 
-eval("// Utility code, especially vector math stuff.\n\nconst Util = {\n    inherits: function inherits(childClass, parentClass)  {\n        childClass.prototype = Object.create(parentClass.prototype);\n        childClass.prototype.constructor = childClass;\n    },\n    randomVec: function randomVec(length) {\n        const deg = 2 * Math.PI * Math.random();\n        return Util.scale([Math.sin(deg), Math.cos(deg)], length);\n    },\n\n    scale: function scale(vec, m) {\n        return [vec[0] * m, vec[1] * m];\n    }\n\n};\n\nmodule.exports = Util;\n\n//# sourceURL=webpack:///./src/utils.js?");
+eval("// Utility code, especially vector math stuff.\n\nconst Util = {\n    inherits: function inherits(childClass, parentClass)  {\n        childClass.prototype = Object.create(parentClass.prototype);\n        childClass.prototype.constructor = childClass;\n    },\n    randomVec: function randomVec(length) {\n        const deg = 2 * Math.PI * Math.random();\n        return Util.scale([Math.sin(deg), Math.cos(deg)], length);\n    },\n\n    scale: function scale(vec, m) {\n        return [vec[0] * m, vec[1] * m];\n    },\n\n    dist: function dist(pos1, pos2) {\n        return Math.sqrt((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2)\n    }\n\n};\n\nmodule.exports = Util;\n\n//# sourceURL=webpack:///./src/utils.js?");
 
 /***/ })
 
