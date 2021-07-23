@@ -5,12 +5,12 @@ const Util = require('./utils');
 function Asteroid(objectArray) {
     this.COLOR = '#32a852';
     this.RADIUS = 10;
-    this.pos = objectArray.pos;
     MovingObject.call(this, {
-        pos: this.pos,
+        pos: objectArray.pos,
         radius: this.RADIUS,
         color: this.COLOR,
-        vel: Util.randomVec(4)
+        vel: Util.randomVec(4),
+        game: objectArray.game
     });
 }
 

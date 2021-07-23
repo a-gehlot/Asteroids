@@ -13,7 +13,7 @@ const Util = {
     scale: function scale(vec, m) {
         return [vec[0] * m, vec[1] * m];
     }
-    
+
 };
 
 module.exports = Util;
