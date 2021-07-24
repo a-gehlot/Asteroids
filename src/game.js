@@ -60,7 +60,7 @@ Game.prototype.checkCollisions = function() {
     for (i = 0; i < this.asteroids.length; i++) {
         for (j = i + 1; j < this.asteroids.length; j++) {
             if (this.asteroids[i].isCollidedWith(this.asteroids[j])) {
-                alert('COLLISION DETECTED'); 
+                this.asteroids[i].collideWith(this.asteroids[j]);
             }
         }
     }
@@ -69,6 +69,13 @@ Game.prototype.checkCollisions = function() {
 Game.prototype.step = function () {
     this.moveObjects();
     this.checkCollisions();
+}
+
+Game.prototype.remove = function(asteroid) {
+    let index = this.asteroids.indexOf(asteroid);
+    if (index > -1) {
+        this.asteroids.splice(index, 1);
+    }
 }
 
 module.exports = Game
