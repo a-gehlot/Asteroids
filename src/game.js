@@ -4,12 +4,17 @@
 // Keeps track of dimensions of the space; wraps objects around when they drift off the screen.
 
 const Asteroid = require("./asteroid");
+const Ship = require("./ship");
 
 function Game (objectArray) {
     Game.DIM_X = 800;
     Game.DIM_Y = 600;
     Game.NUM_ASTEROIDS = objectArray.num_asteroids;
     this.asteroids = [];
+    this.ship = new Ship({
+        game: this,
+        pos: this.randomPosition()
+    })
 }
 
 Game.prototype.addAsteroids = function() {
