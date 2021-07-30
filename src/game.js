@@ -34,8 +34,10 @@ Game.prototype.randomPosition = function() {
 
 Game.prototype.draw = function(ctx) {
     ctx.clearRect(0, 0, 800, 600);
+    ctx.fillStyle = 'green';
     this.asteroids.forEach((asteroid) => {
         asteroid.draw(ctx);
+        ctx.fill();
     })
 }
 
