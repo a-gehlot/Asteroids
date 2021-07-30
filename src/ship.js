@@ -1,9 +1,10 @@
 // This is you! Another MovingObject subclass.
 
 const MovingObject = require("./moving_object");
+const Util = require("./utils");
 
 function Ship (optionsObject) {
-    Ship.RADIUS = 4;
+    Ship.RADIUS = 15;
     Ship.COLOR = '32a852'
     this.vel = [0,0];
     MovingObject.call(this, {
@@ -14,5 +15,9 @@ function Ship (optionsObject) {
         game: optionsObject.game
     })
 }
+
+Util.inherits(Ship, MovingObject)
+
+Ship.prototype.constructor = Ship;
 
 module.exports = Ship;
