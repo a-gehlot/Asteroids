@@ -25,4 +25,10 @@ Ship.prototype.relocate = function() {
     this.vel = [0,0];
 }
 
+Ship.prototype.power = function (impulse) {
+    this.vel = this.vel.map(function(val, idx) {
+        return val + impulse[idx];
+    })
+}
+
 module.exports = Ship;
