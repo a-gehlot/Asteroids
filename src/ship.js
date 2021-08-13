@@ -20,4 +20,9 @@ Util.inherits(Ship, MovingObject)
 
 Ship.prototype.constructor = Ship;
 
+Ship.prototype.relocate = function() {
+    this.pos = this.game.randomPosition();
+    this.vel = [0,0];
+}
+
 module.exports = Ship;

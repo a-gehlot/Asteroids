@@ -42,8 +42,8 @@ Game.prototype.draw = function(ctx) {
 }
 
 Game.prototype.moveObjects = function() {
-    this.asteroids.forEach((asteroid) => {
-        asteroid.move();
+    this.allObjects().forEach((piece) => {
+        piece.move();
     })
 }
 
@@ -64,10 +64,10 @@ Game.prototype.wrap = function(pos) {
 }
 
 Game.prototype.checkCollisions = function() {
-    for (i = 0; i < this.asteroids.length; i++) {
-        for (j = i + 1; j < this.asteroids.length; j++) {
-            if (this.asteroids[i].isCollidedWith(this.asteroids[j])) {
-                this.asteroids[i].collideWith(this.asteroids[j]);
+    for (i = 0; i < this.allObjects().length; i++) {
+        for (j = i + 1; j < this.allObjects().length; j++) {
+            if (this.allObjects()[i].isCollidedWith(this.allObjects()[j])) {
+                this.allObjects()[i].collideWith(this.allObjects()[j]);
             }
         }
     }

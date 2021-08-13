@@ -1,6 +1,7 @@
 // Spacerock. It inherits from MovingObject.
 const MovingObject = require('./moving_object');
 const Util = require('./utils'); 
+const Ship = require('./ship')
 
 function Asteroid(objectArray) {
     Asteroid.COLOR = '#32a852';
@@ -17,5 +18,11 @@ function Asteroid(objectArray) {
 Util.inherits(Asteroid, MovingObject);
 
 Asteroid.prototype.constructor = Asteroid;
+
+Asteroid.prototype.collideWith = function (otherObject) {
+    if (otherObject instanceof Ship) {
+        otherObject.relocate();
+    }
+}
 
 module.exports = Asteroid;
