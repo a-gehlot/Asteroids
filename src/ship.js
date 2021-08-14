@@ -6,10 +6,9 @@ const Util = require("./utils");
 function Ship (optionsObject) {
     Ship.RADIUS = 15;
     Ship.COLOR = '32a852'
-    this.vel = [0,0];
     MovingObject.call(this, {
         pos: optionsObject.pos,
-        vel: this.vel,
+        vel: [0,0],
         radius: Ship.RADIUS,
         color: Ship.COLOR,
         game: optionsObject.game
