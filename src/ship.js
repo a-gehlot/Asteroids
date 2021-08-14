@@ -4,16 +4,15 @@ const MovingObject = require("./moving_object");
 const Util = require("./utils");
 
 function Ship (optionsObject) {
-    Ship.RADIUS = 15;
-    Ship.COLOR = '32a852'
-    MovingObject.call(this, {
-        pos: optionsObject.pos,
-        vel: [0,0],
-        radius: Ship.RADIUS,
-        color: Ship.COLOR,
-        game: optionsObject.game
-    })
+    optionsObject.vel = optionsObject.vel || [0,0] 
+    optionsObject.radius = Ship.RADIUS
+    optionsObject.color = Ship.COLOR
+    MovingObject.call(this, optionsObject)
 }
+
+Ship.RADIUS = 15;
+
+Ship.COLOR = '32a852'
 
 Util.inherits(Ship, MovingObject)
 
