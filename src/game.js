@@ -11,6 +11,7 @@ function Game (objectArray) {
     Game.DIM_Y = 600;
     Game.NUM_ASTEROIDS = objectArray.num_asteroids;
     this.asteroids = [];
+    this.bullets = [];
     this.ship = new Ship({
         game: this,
         pos: this.randomPosition()
@@ -19,10 +20,18 @@ function Game (objectArray) {
 
 Game.prototype.addAsteroids = function() {
     for (let i = 0; i < Game.NUM_ASTEROIDS; i++) {
-        this.asteroids.push(new Asteroid({
+        this.addObject(new Asteroid({
             pos: this.randomPosition(),
             game: this
         }));
+    }
+}
+
+Game.prototype.addObject = function (obj) {
+    if (obj instanceof Asteroid) {
+        this.asteroids.push(obj)
+    } else if (obj instanceof Bullet) {
+        this.bullets.push(obj);
     }
 }
 
@@ -78,15 +87,22 @@ Game.prototype.step = function () {
     this.checkCollisions();
 }
 
-Game.prototype.remove = function(asteroid) {
-    let index = this.asteroids.indexOf(asteroid);
-    if (index > -1) {
-        this.asteroids.splice(index, 1);
+Game.prototype.remove = function(obj) {
+    if (obj instanceof Asteroid) {
+        let index = this.asteroids.indexOf(obj);
+        if (index > -1) {
+            this.asteroids.splice(index, 1)
+        }
+    } else if (obj instanceof Bullet) {
+        let index = this.bullets.indexOf(obj);
+        if (index > -1) {
+            this.bullets.splice(index, 1);
+        }
     }
 }
 
 Game.prototype.allObjects = function() {
-    return this.asteroids.concat(this.ship);
+    return this.asteroids.concat(this.ship, this.bullets);
 }
 
 module.exports = Game
