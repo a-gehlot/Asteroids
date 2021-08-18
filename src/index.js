@@ -14,11 +14,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const canvas = document.getElementById('game-canvas');
     const ctx = canvas.getContext('2d');
     const optionsObject = {
-        pos: [0,0],
-        vel: 10,
-        radius: 5,
-        color: '#eb3434',
-        num_asteroids: 5
+        num_asteroids: 12
     }
     const gameView = new GameView(ctx, optionsObject);
     gameView.start(ctx);

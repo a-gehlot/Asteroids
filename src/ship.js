@@ -35,7 +35,7 @@ Ship.prototype.fireBullet = function() {
     optionsObject = {
         pos: posCopy,
         game: this.game,
-        vel: this.vel.map(function(val) {return val * 4})
+        vel: this.vel.map(function(val) {return val * 4 + 1})
     }
     this.game.addObject(new Bullet(optionsObject))
 }
