@@ -14,4 +14,6 @@ Bullet.prototype.constructor = Bullet;
 
 Util.inherits(Bullet, MovingObject);
 
+Bullet.prototype.isWrappable = false;
+
 module.exports = Bullet;

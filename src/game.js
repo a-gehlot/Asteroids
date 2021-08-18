@@ -106,4 +106,17 @@ Game.prototype.allObjects = function() {
     return this.asteroids.concat(this.ship, this.bullets);
 }
 
+Game.prototype.isOutOfBounds = function(pos) {
+    var canvas = document.getElementById('game-canvas')
+    var width = canvas.width;
+    var height = canvas.height;
+    console.log(width);
+    console.log(height);
+    if (pos[0] < 0 || pos[0] > width || pos[1] < 0 || pos[1] > height) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 module.exports = Game
