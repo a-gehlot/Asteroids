@@ -1,5 +1,6 @@
 // This is you! Another MovingObject subclass.
 
+const Bullet = require("./bullet");
 const MovingObject = require("./moving_object");
 const Util = require("./utils");
 
@@ -27,6 +28,16 @@ Ship.prototype.power = function (impulse) {
     this.vel = this.vel.map(function(val, idx) {
         return val + impulse[idx];
     })
+}
+
+Ship.prototype.fireBullet = function() {
+    let posCopy = JSON.parse(JSON.stringify(this.pos))
+    optionsObject = {
+        pos: posCopy,
+        game: this.game,
+        vel: this.vel.map(function(val) {return val * 4})
+    }
+    this.game.addObject(new Bullet(optionsObject))
 }
 
 module.exports = Ship;

@@ -21,16 +21,19 @@ GameView.prototype.start = function (ctx) {
 
 GameView.prototype.bindKeyHandlers = function() {
     key('w', () => {
-        this.game.ship.power([0, -1])
+        this.game.ship.power([0, -1]);
     })
     key('a', () => {
-        this.game.ship.power([-1, 0])
+        this.game.ship.power([-1, 0]);
     })
     key('s', () => {
-        this.game.ship.power([0, 1])
+        this.game.ship.power([0, 1]);
     })
     key('d', () => {
-        this.game.ship.power([1, 0])
+        this.game.ship.power([1, 0]);
+    })
+    key('space', () => {
+        this.game.ship.fireBullet();
     })
 }
 

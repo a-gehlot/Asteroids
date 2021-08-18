@@ -4,11 +4,13 @@ const MovingObject = require("./moving_object");
 const Util = require("./utils");
 
 function Bullet (optionsObject) {
-    optionsObject.RADIUS = Bullet.RADIUS;
+    optionsObject.radius = Bullet.RADIUS;
     MovingObject.call(this, optionsObject)
 }
 
 Bullet.RADIUS = 4;
+
+Bullet.prototype.constructor = Bullet;
 
 Util.inherits(Bullet, MovingObject);
 

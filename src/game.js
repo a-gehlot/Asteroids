@@ -5,6 +5,7 @@
 
 const Asteroid = require("./asteroid");
 const Ship = require("./ship");
+const Bullet = require("./bullet")
 
 function Game (objectArray) {
     Game.DIM_X = 800;
