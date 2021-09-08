@@ -5,7 +5,7 @@ const Ship = require('./ship')
 const Bullet = require('./bullet')
 
 function Asteroid(objectArray) {
-    Asteroid.COLOR = '#32a852';
+    Asteroid.COLOR = 'blue';
     Asteroid.RADIUS = 10;
     MovingObject.call(this, {
         pos: objectArray.pos,

@@ -13,7 +13,7 @@ function Ship (optionsObject) {
 
 Ship.RADIUS = 15;
 
-Ship.COLOR = '32a852'
+Ship.COLOR = 'red'
 
 Util.inherits(Ship, MovingObject)
 
