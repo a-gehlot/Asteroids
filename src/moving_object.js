@@ -22,9 +22,23 @@ MovingObject.prototype.draw = function (ctx) {
     ctx.stroke();
 }
 
-MovingObject.prototype.move = function () {
-    this.pos[0] += this.vel[0];
-    this.pos[1] += this.vel[1];
+// MovingObject.prototype.move = function () {
+//     this.pos[0] += this.vel[0];
+//     this.pos[1] += this.vel[1];
+//     if (this.game.isOutOfBounds(this.pos)) {    
+//         if (this.isWrappable) {
+//             this.pos = this.game.wrap(this.pos);
+//         } else {
+//             this.game.remove(this);
+//         }        
+//     }
+// }
+
+MovingObject.prototype.move = function (timeDelta) {
+    this.delta = this.delta || 1;
+    this.pos[0] += this.vel[0] * this.delta;
+    this.pos[1] += this.vel[1] * this.delta;
+
     if (this.game.isOutOfBounds(this.pos)) {    
         if (this.isWrappable) {
             this.pos = this.game.wrap(this.pos);

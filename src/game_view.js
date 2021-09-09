@@ -10,13 +10,19 @@ function GameView (ctx, optionsObject) {
     this.game = new Game(optionsObject);
 }
 
+// GameView.prototype.start = function (ctx) {
+//     this.game.addAsteroids();
+//     this.bindKeyHandlers();
+//     setInterval(() => {
+//         this.game.step();
+//         this.game.draw(ctx);
+//     }, 20)
+// }
+
 GameView.prototype.start = function (ctx) {
     this.game.addAsteroids();
     this.bindKeyHandlers();
-    setInterval(() => {
-        this.game.step();
-        this.game.draw(ctx);
-    }, 20)
+    requestAnimationFrame(this.animate.bind(this));
 }
 
 GameView.prototype.bindKeyHandlers = function() {
@@ -35,6 +41,15 @@ GameView.prototype.bindKeyHandlers = function() {
     key('space', () => {
         this.game.ship.fireBullet();
     })
+}
+
+GameView.prototype.animate = function (currentTime) {
+    this.lastTime = this.lastTime || 0;
+    let delta = (currentTime - this.lastTime);
+    this.game.moveObjects(delta);
+    this.game.draw(this.ctx);
+    this.lastTime = currentTime;
+    requestAnimationFrame(this.animate.bind(this));
 }
 
 module.exports = GameView;

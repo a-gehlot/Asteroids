@@ -50,10 +50,16 @@ Game.prototype.draw = function(ctx) {
     })
 }
 
-Game.prototype.moveObjects = function() {
+// Game.prototype.moveObjects = function() {
+//     this.allObjects().forEach((piece) => {
+//         piece.move();
+//     })
+// }
+
+Game.prototype.moveObjects = function (delta) {
     this.allObjects().forEach((piece) => {
-        piece.move();
-    })
+        piece.move(delta);
+    });
 }
 
 Game.prototype.wrap = function(pos) {
