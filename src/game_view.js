@@ -47,6 +47,7 @@ GameView.prototype.animate = function (currentTime) {
     this.lastTime = this.lastTime || 0;
     let delta = (currentTime - this.lastTime);
     this.game.moveObjects(delta);
+    this.game.checkCollisions();
     this.game.draw(this.ctx);
     this.lastTime = currentTime;
     requestAnimationFrame(this.animate.bind(this));
